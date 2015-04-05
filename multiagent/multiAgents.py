@@ -145,7 +145,8 @@ class MinimaxAgent(MultiAgentSearchAgent):
     def maxvalue(self ,state, agentIndex, currentdepth):
       v = (float("-inf"), "Stop")
       for action in state.getLegalActions(agentIndex):
-        v = max([v, (self.value(state.generateSuccessor(agentIndex, action), (currentdepth+1) % self.number_of_agents, currentdepth+1), action)], key=lambda item:item[0])
+        v = max([v, (self.value(state.generateSuccessor(agentIndex, action), (currentdepth+1) % self.number_of_agents, currentdepth+1), action)],\
+         key=lambda item:item[0])
       return v
 
     def minvalue(self, state, agentIndex, currentdepth):
